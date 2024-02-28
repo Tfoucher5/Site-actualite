@@ -17,10 +17,15 @@ if (isset($_POST['soumettre'])) {
         $temp->bindParam(":mail", $mail, PDO::PARAM_STR);
         $temp->execute();
         $_SESSION['contact'] = "Contact ajouté avec succès!";
-        header('home.php');
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
         exit();
+    }
+    if ($temp->execute()) {
+        header('Location: home.php');
+        exit();
+    } else {
+        echo 'Modification failed';
     }
 }
 ?>
