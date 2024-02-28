@@ -1,0 +1,141 @@
+html{
+    background-color: rgb(112, 112, 112);
+}
+
+/*HEADER*/
+
+header{
+    display: grid;
+    grid-template-columns: calc(100%/3);
+    background-color: #B8B4B0;
+    border: 0   solid;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.logo-header{
+    grid-column: 1 / span 1;
+    float: left;
+}
+
+.logo-header img{
+    width: 150px;
+    margin-top: 15px;
+}
+
+.titre-header{
+    grid-column: 2 / span 1;
+    margin: 0   auto;
+    text-align: center;
+}
+
+.titre-header h1{
+    font-size: 50px;
+}
+
+.titre-header p{
+    font-size: 30px;
+}
+
+
+.menu-header{
+    grid-column: 3 / span 1;
+    margin: 0   auto;
+    font-size: 25px;
+    margin-top: 80px;
+}
+
+.menu-header a{
+    text-decoration: none;
+    color: black;
+    border: 0 solid;
+    padding: 5px 15px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.menu-header a:hover{
+    color: white;
+    background-color: black;
+}
+
+
+
+/*Home*/
+
+main{
+    display: flex;
+    flex-direction: column;
+    background-image: url(images/fond.jpg);
+    border: 0   solid;
+    border-radius: 30px;
+}
+
+main a{
+    text-decoration: none;
+}
+
+.carte-article{
+    background-color: rgb(255, 255, 255);
+    width: 850px;
+    height: 400px;
+    margin: 0   auto;
+    margin-top: 35px;
+    border: 0   solid;
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    
+}
+.carte-article:hover{
+    box-shadow: 5px 5px 30px 5px grey;
+}
+
+.titre-carte{
+    color: black;
+    margin: 0   auto;
+    margin-top: 15px;
+    font-size: 30px;
+    grid-column: 1 / span 2;
+}
+
+.image-carte{
+    margin-left: 80px;
+    border-radius: 10px;
+    grid-column: 1 / span 1;
+}
+
+.desc-article{
+    grid-column: 2 /span 1;
+    background-color: rgb(148, 148, 148);
+    color: black;
+    border-radius: 15px;
+    margin-bottom: 100px;
+    margin-right: 80px;
+}
+
+.date-publication{
+    margin-left: 15px;
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+.auteur-article{
+    margin-left: 15px;
+    font-size: 20px;
+}
+
+.tags-article{
+    margin-left: 15px;
+    font-size: 20px;
+}
+
+
+/*FOOTER*/
+
+footer{
+    background-color: red;
+    margin-top: 15px;
+    height: 189px;
+    border-radius: 30px;
+}
