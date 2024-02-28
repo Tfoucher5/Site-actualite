@@ -206,9 +206,31 @@ main a{
 /*CONTACT*/
 
 .form-container{
-    height: 150px;
+    width: 300px;
+    text-align: center;
+    background-color: grey;
+    margin: 0   auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-bottom: 25px;
+    border-radius: 30px;
 }
 
+.titre-formulaire{
+    font-size: 35px;
+}
+
+.input-box{
+    margin-bottom: 15px;
+    border-radius: 15px;
+    padding: 5px 15px;
+}
+
+.submit-bouton{
+    padding: 5px 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
 
 
 

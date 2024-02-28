@@ -46,14 +46,14 @@ if (isset($_POST['soumettre'])) {
             <p class="titre-formulaire">Nous contacter</p>
             <form action="contact.php" method="post">
                 <label class="input-label" for="nom">Nom : </label>
-                <input class="input-box" type="text" name="nom" maxlength="50" placeholder="Nom" />
+                <input class="input-box" type="text" name="nom" maxlength="50" placeholder="Nom" /><br />
 
                 <label class="input-label" for="prenom">Prénom : </label>
-                <input class="input-box" type="text" name="prenom" maxlength="50" placeholder="Prénom" />
+                <input class="input-box" type="text" name="prenom" maxlength="50" placeholder="Prénom" /><br />
 
                 <label class="input-label" for="mail">E-mail : </label>
-                <input class="input-box" type="email" name="mail" maxlength="100" placeholder="E-mail" />
-                <input class="submmit-bouton" name="soumettre" type="submit" value="prendre contact" />
+                <input class="input-box" type="email" name="mail" maxlength="100" placeholder="E-mail" /><br />
+                <input class="submit-bouton" name="soumettre" type="submit" value="prendre contact" />
             </form>
         </div>
     </main>
