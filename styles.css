@@ -80,7 +80,8 @@ main a{
     width: 850px;
     height: 400px;
     margin: 0   auto;
-    margin-top: 35px;
+    margin-top: 17.5px;
+    margin-bottom: 17.5px;
     border: 0   solid;
     border-radius: 15px;
     display: grid;
@@ -134,8 +135,40 @@ main a{
 /*FOOTER*/
 
 footer{
-    background-color: red;
+    background-color: #B8B4B0;
     margin-top: 15px;
-    height: 189px;
+    height: 200px;
     border-radius: 30px;
+    overflow: hidden;
+}
+
+footer iframe{
+    margin-top: 5px;
+    margin-left: 20%;
+    border-radius: 15px;
+}
+
+.autre-liens-footer{
+    float: right;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-right: 45%;
+    margin-top: 2%;
+}
+
+.autre-liens-footer a{
+    margin-top: 15px;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+.autre-liens-footer a:hover{
+    text-decoration: underline;
+}
+
+.autre-liens-footer img{
+    width: 50px;
+    margin: 0   auto;
 }
