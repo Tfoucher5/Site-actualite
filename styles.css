@@ -69,6 +69,7 @@ main{
     background-image: url(images/fond.jpg);
     border: 0   solid;
     border-radius: 30px;
+    margin-top: 20px;
 }
 
 main a{
@@ -104,6 +105,8 @@ main a{
     margin-left: 80px;
     border-radius: 10px;
     grid-column: 1 / span 1;
+    margin-top: 15px;
+    width: 300px;
 }
 
 .desc-article{
@@ -130,6 +133,85 @@ main a{
     margin-left: 15px;
     font-size: 20px;
 }
+
+
+
+/*ARTICLE*/
+
+.content{
+    display: grid;
+    grid-template-columns: 35% 65%;
+}
+
+.titre-auteur{
+    margin: 0   auto;
+    font-size: 40px;
+    margin-top: 25px;
+    grid-column: 1 / span 2 ;
+}
+
+.img{
+    width: 500px;
+    margin-left: 25px;
+    margin-top: 70px;
+    border-radius: 15px;
+    grid-column: 1 / span 1;
+}
+
+.a-droite{
+    grid-column: 2 / span 1;
+}
+
+.content-article{
+    font-size: 30px;
+    margin-top: 70px;
+    margin-right: 25px;
+}
+
+.infos-supplementaires{
+    grid-column: 1/ span 1;
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.dates{
+    font-size: 18px;
+}
+
+.tags{
+    font-size: 18px;
+}
+
+.source{
+    font-size: 18px;
+}
+
+.retour-container{
+    grid-column: 2 / span 1;
+    margin-left: 1000px;
+    margin-top: 130px;
+}
+
+.bouton-retour{
+    color: black;
+    font-size: 25px;
+    margin: 0   auto;
+    background-color: grey;
+    border-radius: 15px;
+    padding: 5px 15px;
+}
+
+
+/*CONTACT*/
+
+.form-container{
+    height: 150px;
+}
+
+
+
+
 
 
 /*FOOTER*/

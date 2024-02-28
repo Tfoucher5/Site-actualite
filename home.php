@@ -23,19 +23,19 @@ $temp->execute();
     </header>  <br />
     <main>
         <?php
-    while ($resultats = $temp->fetch()){
-        echo '<a href="article.php?id=' . $resultats['id_article'] . '">';
-        echo '<div class="carte-article">';
-            echo '<p class="titre-carte">' . $resultats['titre'] . '</p>';
-            echo '<img class="image-carte" src="' .  $resultats['image'] . '" alt="image article" title="image article" />';
-            echo '<div class="desc-article">';
-                echo '<p class="date-publication">Date de publication : ' . $resultats['date_publication'] . '</p>';
-                echo '<p class="auteur-article">Auteur : ' .  $resultats['auteur'] . '</p>';
-                echo '<p class="tags-article">Tags : ' .  $resultats['tags'] . '</p>';
-            echo '</div>';
-        echo '</div>';
-        echo '</a>';
-    }
+            while ($resultats = $temp->fetch()){
+                echo '<a href="article.php?id=' . $resultats['id_article'] . '">';
+                echo '<div class="carte-article">';
+                    echo '<p class="titre-carte">' . $resultats['titre'] . '</p>';
+                    echo '<img class="image-carte" src="' .  $resultats['image'] . '" alt="image article" title="image article" />';
+                    echo '<div class="desc-article">';
+                        echo '<p class="date-publication">Date de publication : ' . $resultats['date_publication'] . '</p>';
+                        echo '<p class="auteur-article">Auteur : ' .  $resultats['auteur'] . '</p>';
+                        echo '<p class="tags-article">Tags : ' .  $resultats['tags'] . '</p>';
+                    echo '</div>';
+                echo '</div>';
+                echo '</a>';
+            }
     ?>
         
     </main>

@@ -1,6 +1,8 @@
 <?php
     include'connexion_base.php';
 
+    session_abort();
+
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
         
@@ -28,7 +30,25 @@
     <?php include'header.html';?>
 </header>
 <main>
-    <h3 class="titre"></h3>
+    <div class="content">
+    <h3 class="titre-auteur"><?php echo $donnee_article['titre']; ?> écrit par <em><?php echo $donnee_article['auteur'];?></em></h3>
+    <img class="img" src="<?php echo $donnee_article['image'] ?>" alt="image article" title="image article" />
+        <div class="a-droite">
+            <p class="content-article"><?php echo $donnee_article['corps_texte']; ?></p>
+        </div>
+        <div class="infos-supplementaires">
+            <p class="dates"><strong>Date de  publication : </strong><?php echo $donnee_article['date_publication']; ?><strong>. Dernière modification le : </strong><?php echo $donnee_article['date_revision']; ?>
+            <p class="tags"><strong>Tags : </strong><?php echo $donnee_article['tags']; ?></p>
+            <p class="source"><strong>Source(s) : </strong><?php echo $donnee_article['sources']; ?></p>
+        </div>
+        <div class="retour-container">
+            <a class="bouton-retour" href="home.php">Retour</a>
+        </div>
+    </div>
+
 </main>
+<footer>
+    <?php include'footer.html';?>
+</footer>
 </body>
 </html>
