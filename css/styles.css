@@ -63,11 +63,15 @@ header{
 
 /*Home*/
 
+.validation{
+    border-radius: 15px;
+    background-color: yellow    ;
+}
+
 main{
     display: flex;
     flex-direction: column;
-    background-image: url(images/fond.jpg);
-    border: 0   solid;
+    background-image: url('../images/fond.jpg');
     border-radius: 30px;
     margin-top: 20px;
 }

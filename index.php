@@ -1,9 +1,11 @@
 <?php
 
-include("connexion_base.php");
+include"include/connexion_base.php";
+
+session_start();
 
 // Sélection des données depuis la base de données
-$sql = 'SELECT * FROM article ORDER BY date_publication, date_revision LIMIT 5 ';
+$sql = 'SELECT * FROM article ORDER BY date_revision LIMIT 5 ';
 $temp = $pdo->prepare($sql);
 $temp->execute();
 
@@ -14,12 +16,18 @@ $temp->execute();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css\styles.css">
     <title>Document</title>
 </head>
 <body>
+    <?php 
+    if(isset($_SESSION['validation'])){
+        echo $_SESSION['validation'];
+    }
+    
+    ?>
     <header>
-        <?php include("header.html");?>  
+        <?php include'include/html/header.html';?>
     </header>  <br />
     <main>
         <?php
@@ -41,7 +49,7 @@ $temp->execute();
     </main>
 
     <footer>
-        <?php include'footer.html'?>
+    <?php include'include/html/footer.html';?>
     </footer>
 </body>
 </html>
