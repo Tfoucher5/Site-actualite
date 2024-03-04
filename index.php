@@ -1,6 +1,7 @@
 <?php
 
-include"include/connexion_base.php";
+include "include/connexion_base.php";
+require_once "classes/Actualite.php";
 
 session_start();
 
@@ -8,6 +9,24 @@ session_start();
 $sql = 'SELECT * FROM article ORDER BY date_revision LIMIT 5 ';
 $temp = $pdo->prepare($sql);
 $temp->execute();
+
+$actualites = []; // Array to store Actualite objects
+
+while ($resultats = $temp->fetch()) {
+    $actualite = new Actualite(
+        $resultats['id_article'],
+        $resultats['titre'],
+        $resultats['corps_texte'],
+        $resultats['image'],
+        $resultats['date_publication'],
+        $resultats['date_revision'],
+        $resultats['auteur'],
+        $resultats['tags'],
+        $resultats['sources']
+    );
+
+    $actualites[] = $actualite;
+}
 
 ?>
 
@@ -24,32 +43,29 @@ $temp->execute();
     if(isset($_SESSION['validation'])){
         echo $_SESSION['validation'];
     }
-    
     ?>
     <header>
-        <?php include'include/html/header.html';?>
-    </header>  <br />
+        <?php include 'include/html/header.html';?>
+    </header>  
+    <br />
     <main>
-        <?php
-            while ($resultats = $temp->fetch()){
-                echo '<a href="article.php?id=' . $resultats['id_article'] . '">';
-                echo '<div class="carte-article">';
-                    echo '<p class="titre-carte">' . $resultats['titre'] . '</p>';
-                    echo '<img class="image-carte" src="' .  $resultats['image'] . '" alt="image article" title="image article" />';
-                    echo '<div class="desc-article">';
-                        echo '<p class="date-publication">Date de publication : ' . $resultats['date_publication'] . '</p>';
-                        echo '<p class="auteur-article">Auteur : ' .  $resultats['auteur'] . '</p>';
-                        echo '<p class="tags-article">Tags : ' .  $resultats['tags'] . '</p>';
-                    echo '</div>';
-                echo '</div>';
-                echo '</a>';
-            }
-    ?>
-        
+        <?php foreach ($actualites as $actualite) { ?>
+            <a href="article.php?id=<?= $actualite->id ?>">
+                <div class="carte-article">
+                    <p class="titre-carte"><?= $actualite->titre ?></p>
+                    <img class="image-carte" src="<?= $actualite->image ?>" alt="image article" title="image article" />
+                    <div class="desc-article">
+                        <p class="date-publication">Date de publication : <?= $actualite->date_publication ?></p>
+                        <p class="auteur-article">Auteur : <?= $actualite->auteur ?></p>
+                        <p class="tags-article">Tags : <?= $actualite->tags ?></p>
+                    </div>
+                </div>
+            </a>
+        <?php } ?>
     </main>
 
     <footer>
-    <?php include'include/html/footer.html';?>
+        <?php include 'include/html/footer.html';?>
     </footer>
 </body>
 </html>

@@ -1,20 +1,18 @@
 <?php
 include"include/connexion_base.php";
+require_once "classes/Contact.php";
 
 session_start();
 
 if (isset($_POST['soumettre'])) {
-    // récupérer les valeurs saisies
-    $prenom = htmlentities($_POST['prenom']);
-    $nom = htmlentities($_POST['nom']);
-    $mail = htmlentities($_POST['mail']);
 
+    $contact = new Contact($_REQUEST['prenom'], $_REQUEST['nom'], $_REQUEST['mail']);
     $sql = 'INSERT INTO contact (prenom, nom, mail) VALUES (:prenom, :nom, :mail)';
     try {
         $temp = $pdo->prepare($sql);
-        $temp->bindParam(":prenom", $prenom, PDO::PARAM_STR);
-        $temp->bindParam(":nom", $nom, PDO::PARAM_STR);
-        $temp->bindParam(":mail", $mail, PDO::PARAM_STR);
+        $temp->bindParam(":prenom", $contact->prenom, PDO::PARAM_STR);
+        $temp->bindParam(":nom", $contact->nom, PDO::PARAM_STR);
+        $temp->bindParam(":mail", $contact->mail, PDO::PARAM_STR);
         $temp->execute();
         $_SESSION['contact'] = "Contact ajouté avec succès!";
     } catch (PDOException $e) {
