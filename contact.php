@@ -1,32 +1,25 @@
 <?php
-include"include/connexion_base.php";
+include "include/connexion_base.php";
 require_once "classes/Contact.php";
 
 session_start();
 
 if (isset($_POST['soumettre'])) {
+    // Set values from the form
+    $values = array(
+        'prenom' => $_POST['prenom'],
+        'nom' => $_POST['nom'],
+        'mail' => $_POST['mail'],
+    );
 
-    $contact = new Contact($_REQUEST['prenom'], $_REQUEST['nom'], $_REQUEST['mail']);
-    $sql = 'INSERT INTO contact (prenom, nom, mail) VALUES (:prenom, :nom, :mail)';
-    try {
-        $temp = $pdo->prepare($sql);
-        $temp->bindParam(":prenom", $contact->prenom, PDO::PARAM_STR);
-        $temp->bindParam(":nom", $contact->nom, PDO::PARAM_STR);
-        $temp->bindParam(":mail", $contact->mail, PDO::PARAM_STR);
-        $_SESSION['contact'] = "Contact ajouté avec succès!";
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
-        exit();
-    }
-    if ($temp->execute()) {
-        $_SESSION['validation'] = "Vos informations ont bien été enregistrées";
-        header('Location: index.php');
-        exit();
-    } else {
-        echo 'Modification failed';
-    }
+    // Create an instance of Contact and pass the values
+    $contact = new Contact($values);
+
+    // Call the sendContact method
+    $contact->sendContact($contact);
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +30,7 @@ if (isset($_POST['soumettre'])) {
 </head>
 <body>
     <header>
-        <?php include'include/html/header.html';?>
+        <?php include 'include/html/header.html';?>
     </header>
     <main>
         <div class="form-container">
@@ -56,7 +49,7 @@ if (isset($_POST['soumettre'])) {
         </div>
     </main>
     <footer>
-        <?php include'include/html/footer.html';?>
+        <?php include 'include/html/footer.html';?>
     </footer>
 </body>
 </html>

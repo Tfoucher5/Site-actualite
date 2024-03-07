@@ -4,16 +4,7 @@ include "include/connexion_base.php";
 require_once "classes/Actualite.php";
 
 session_start();
-
-
-$actualites = []; // Array to store Actualite objects
-
-while ($resultats = $temp->fetch()) {
-    $actualite = new Actualite($resultats);
-
-    $actualites[] = $actualite;
-}
-
+    $actualite = Actualite::getListe();
 ?>
 
 <!DOCTYPE html>
@@ -35,15 +26,15 @@ while ($resultats = $temp->fetch()) {
     </header>  
     <br />
     <main>
-        <?php foreach ($actualites as $actualite) { ?>
-            <a href="article.php?id=<?= $actualite->id ?>">
+        <?php foreach ($actualite as $article) { ?>
+            <a href="article.php?id=<?= $article->id ?>">
                 <div class="carte-article">
-                    <p class="titre-carte"><?= $actualite->titre ?></p>
-                    <img class="image-carte" src="<?= $actualite->image ?>" alt="image article" title="image article" />
+                    <p class="titre-carte"><?= $article->titre ?></p>
+                    <img class="image-carte" src="<?= $article->image ?>" alt="image article" title="image article" />
                     <div class="desc-article">
-                        <p class="date-publication">Date de publication : <?= $actualite->date_publication ?></p>
-                        <p class="auteur-article">Auteur : <?= $actualite->auteur ?></p>
-                        <p class="tags-article">Tags : <?= $actualite->tags ?></p>
+                        <p class="date-publication">Date de publication : <?= $article->date_publication ?></p>
+                        <p class="auteur-article">Auteur : <?= $article->auteur ?></p>
+                        <p class="tags-article">Tags : <?= $article->tags ?></p>
                     </div>
                 </div>
             </a>
