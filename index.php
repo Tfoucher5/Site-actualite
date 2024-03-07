@@ -5,10 +5,6 @@ require_once "classes/Actualite.php";
 
 session_start();
 
-// Sélection des données depuis la base de données
-$sql = 'SELECT * FROM article ORDER BY date_revision LIMIT 5 ';
-$temp = $pdo->prepare($sql);
-$temp->execute();
 
 $actualites = []; // Array to store Actualite objects
 

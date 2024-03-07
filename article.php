@@ -5,20 +5,7 @@
 
     require_once "classes/Actualite.php";
 
-    $donnee_article = null;
-
-    if (isset($_GET['id'])) {
-        $id = $_GET['id'];
-
-        // Récupérer les données de l'article avec l'ID spécifié
-        $query = "SELECT * FROM article WHERE id_article = :id";
-        $stmt = $pdo->prepare($query);
-        $stmt->bindParam(':id', $id);
-        $stmt->execute();
-        $donnee_article = $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-
-    ?>
+?>
 
     <!DOCTYPE html>
     <html lang="en">
