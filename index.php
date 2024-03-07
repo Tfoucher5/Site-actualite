@@ -13,17 +13,7 @@ $temp->execute();
 $actualites = []; // Array to store Actualite objects
 
 while ($resultats = $temp->fetch()) {
-    $actualite = new Actualite(
-        $resultats['id_article'],
-        $resultats['titre'],
-        $resultats['corps_texte'],
-        $resultats['image'],
-        $resultats['date_publication'],
-        $resultats['date_revision'],
-        $resultats['auteur'],
-        $resultats['tags'],
-        $resultats['sources']
-    );
+    $actualite = new Actualite($resultats);
 
     $actualites[] = $actualite;
 }

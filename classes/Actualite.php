@@ -11,25 +11,17 @@ class Actualite{
     public $tags;
     public $sources;
 
-    public function __construct(int $id,
-                                string $titre, 
-                                string $corps_texte, 
-                                string $image, 
-                                string $date_publication, 
-                                string $date_revision, 
-                                string $auteur, 
-                                string $tags, 
-                                string $sources){
+    public function __construct(array $values){
 
-        $this->id = $id;
-        $this->titre = $titre;
-        $this->corps_texte = $corps_texte;
-        $this->image = $image;
-        $this->date_publication = $date_publication;
-        $this->date_revision = $date_revision;
-        $this->auteur = $auteur;
-        $this->tags = $tags;
-        $this->sources = $sources;
+        $this->id = $values['id_article'];
+        $this->titre = $values['titre'];
+        $this->corps_texte = $values['corps_texte'];
+        $this->image = $values['image'];
+        $this->date_publication = $values['date_publication'];
+        $this->date_revision = $values['date_revision'];
+        $this->auteur = $values['auteur'];
+        $this->tags = $values['tags'];
+        $this->sources = $values['sources'];
                                 
     }
 }

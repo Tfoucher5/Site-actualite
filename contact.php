@@ -13,7 +13,6 @@ if (isset($_POST['soumettre'])) {
         $temp->bindParam(":prenom", $contact->prenom, PDO::PARAM_STR);
         $temp->bindParam(":nom", $contact->nom, PDO::PARAM_STR);
         $temp->bindParam(":mail", $contact->mail, PDO::PARAM_STR);
-        $temp->execute();
         $_SESSION['contact'] = "Contact ajouté avec succès!";
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
