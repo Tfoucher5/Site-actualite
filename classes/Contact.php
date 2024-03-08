@@ -18,14 +18,13 @@ class Contact extends Connexionbdd{
         $sql = 'INSERT INTO contact (prenom, nom, mail) VALUES (:prenom, :nom, :mail)';
     
         try {
-            // Data validation - you may want to implement more robust validation
             if (empty($contact->prenom) || empty($contact->nom) || empty($contact->mail)) {
                 $_SESSION['validation'] = "Veuillez remplir tous les champs.";
-                header('Location: contact.php'); // Redirect to the contact page or another appropriate page
+                header('Location: contact.php'); 
                 exit();
             }
     
-            $temp = Connexionbdd::getPdo()->prepare($sql);
+            $temp = Connexionbdd::ajout($sql);
             $temp->bindParam(":prenom", $contact->prenom, PDO::PARAM_STR);
             $temp->bindParam(":nom", $contact->nom, PDO::PARAM_STR);
             $temp->bindParam(":mail", $contact->mail, PDO::PARAM_STR);
