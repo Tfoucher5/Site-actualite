@@ -2,7 +2,7 @@
 
 require_once "Connexionbdd.php";
 
-class Contact{
+class Contact extends Connexionbdd{
     public $prenom;
     public $nom;
     public $mail;
