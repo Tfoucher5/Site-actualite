@@ -14,8 +14,6 @@ class Contact extends Connexionbdd{
     }
 
     public static function sendContact($contact) {
-        
-        $connexion = new Connexionbdd();
     
         $sql = 'INSERT INTO contact (prenom, nom, mail) VALUES (:prenom, :nom, :mail)';
     
@@ -27,7 +25,7 @@ class Contact extends Connexionbdd{
                 exit();
             }
     
-            $temp = $contact->pdo->prepare($sql);
+            $temp = Connexionbdd::getPdo()->prepare($sql);
             $temp->bindParam(":prenom", $contact->prenom, PDO::PARAM_STR);
             $temp->bindParam(":nom", $contact->nom, PDO::PARAM_STR);
             $temp->bindParam(":mail", $contact->mail, PDO::PARAM_STR);
