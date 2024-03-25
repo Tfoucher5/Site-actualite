@@ -1,6 +1,5 @@
 <?php
 
-include "include/connexion_base.php";
 require_once "classes/Actualite.php";
 
 session_start();

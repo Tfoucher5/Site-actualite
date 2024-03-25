@@ -1,5 +1,4 @@
-<?php
-include "include/connexion_base.php";
+<?php   
 session_start();
 
 require_once "classes/Actualite.php";

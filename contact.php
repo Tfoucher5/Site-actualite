@@ -1,5 +1,4 @@
 <?php
-include "include/connexion_base.php";
 require_once "classes/Contact.php";
 
 session_start();
