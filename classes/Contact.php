@@ -19,7 +19,6 @@ class Contact extends Connexionbdd{
     
         try {
             if (empty($contact->prenom) || empty($contact->nom) || empty($contact->mail)) {
-                $_SESSION['validation'] = "Veuillez remplir tous les champs.";
                 header('Location: contact.php'); 
                 exit();
             }
@@ -30,7 +29,6 @@ class Contact extends Connexionbdd{
             $temp->bindParam(":mail", $contact->mail, PDO::PARAM_STR);
     
             if ($temp->execute()) {
-                $_SESSION['validation'] = "Vos informations ont bien été enregistrées";
                 header('Location: index.php');
                 exit();
             } else {

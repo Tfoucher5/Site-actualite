@@ -3,7 +3,7 @@
 require_once "classes/Actualite.php";
 
 session_start();
-    $actualite = Actualite::getListe();
+$actualite = Actualite::getListe();
 ?>
 
 <!DOCTYPE html>
@@ -11,17 +11,12 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css\styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Document</title>
 </head>
 <body>
-    <?php 
-    if(isset($_SESSION['validation'])){
-        echo $_SESSION['validation'];
-    }
-    ?>
     <header>
-        <?php include 'include/html/header.html';?>
+        <?php include 'include\header.php'; ?> <!-- Assurez-vous que le chemin vers le fichier header.php est correct -->
     </header>  
     <br />
     <main>
@@ -41,7 +36,7 @@ session_start();
     </main>
 
     <footer>
-        <?php include 'include/html/footer.html';?>
+        <?php include 'include/footer.html'; ?>
     </footer>
 </body>
 </html>

@@ -13,4 +13,18 @@ class Connexionbdd
         $temp = $pdo->prepare($sql);
         return $temp;
     }
+
+    public static function query($sql, $params = []) {
+        $pdo = Connexionbdd::getPdo();
+        $stmt = $pdo->prepare($sql);
+        
+        foreach ($params as $param => $value) {
+            $stmt->bindValue($param, $value);
+        }
+        
+        $stmt->execute();
+        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        return $data;
+    }
 }
