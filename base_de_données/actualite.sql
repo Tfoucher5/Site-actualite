@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 28 fév. 2024 à 16:59
+-- Généré le : lun. 25 mars 2024 à 15:56
 -- Version du serveur : 8.0.31
--- Version de PHP : 8.0.26
+-- Version de PHP : 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -56,6 +56,33 @@ INSERT INTO `article` (`id_article`, `titre`, `corps_texte`, `image`, `date_publ
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `categories`
+--
+
+DROP TABLE IF EXISTS `categories`;
+CREATE TABLE IF NOT EXISTS `categories` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nom` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `chemin` varchar(50) NOT NULL,
+  `categorie_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_categorie_id` (`categorie_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `categories`
+--
+
+INSERT INTO `categories` (`id`, `nom`, `chemin`, `categorie_id`) VALUES
+(1, 'Sport', '', NULL),
+(3, 'foot', 'contact.php', 1),
+(4, 'ski nordique', '', 1),
+(5, 'actualité', '', NULL),
+(6, 'politique', '', 5);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `contact`
 --
 
@@ -66,21 +93,14 @@ CREATE TABLE IF NOT EXISTS `contact` (
   `prenom` varchar(50) NOT NULL,
   `mail` varchar(255) NOT NULL,
   PRIMARY KEY (`id_contact`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `contact`
 --
 
 INSERT INTO `contact` (`id_contact`, `nom`, `prenom`, `mail`) VALUES
-(20, 'Foucher', 'Theo', 'theonicolas.foucher@gmail.com'),
-(19, 'Foucher', 'Theo', 'theonicolas.foucher@gmail.com'),
-(18, 'Foucher', 'Theo', 'theonicolas.foucher@gmail.com'),
-(17, 'Foucher', 'Theo', 'theonicolas.foucher@gmail.com'),
-(16, 'Foucher', 'Theo', 'theonicolas.foucher@gmail.com'),
-(15, 'Foucher', 'Theo', 'theonicolas.foucher@gmail.com'),
-(14, 'Foucher', 'Theo', 'theonicolas.foucher@gmail.com'),
-(13, 'Foucher', 'Theo', 'theonicolas.foucher@gmail.com');
+(49, 'Foucher', 'Theo', 'theonicolas.foucher@gmail.com');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
