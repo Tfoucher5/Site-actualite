@@ -8,10 +8,16 @@ class Connexionbdd
         return $pdo;
     }
 
-    public static function ajout($sql){
+    public static function ajoutContact($sql){
         $pdo = Connexionbdd::getPdo();
         $temp = $pdo->prepare($sql);
         return $temp;
+    }
+
+    public static function ajoutCategorie($sql){
+        $pdo = Connexionbdd::getPdo();
+        $temp = $pdo->prepare($sql);
+        $temp->execute();
     }
 
     public static function query($sql, $params = []) {

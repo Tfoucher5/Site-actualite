@@ -1,5 +1,7 @@
 <?php
 
+require_once 'Connexionbdd.php';
+
 class Categories extends Connexionbdd{
 
     public static function getCategories(){

@@ -23,7 +23,7 @@ class Contact extends Connexionbdd{
                 exit();
             }
     
-            $temp = Connexionbdd::ajout($sql);
+            $temp = Connexionbdd::ajoutContact($sql);
             $temp->bindParam(":prenom", $contact->prenom, PDO::PARAM_STR);
             $temp->bindParam(":nom", $contact->nom, PDO::PARAM_STR);
             $temp->bindParam(":mail", $contact->mail, PDO::PARAM_STR);
