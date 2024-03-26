@@ -1,7 +1,11 @@
 <?php
-
 require_once 'classes/Admin.php';
 $categories = Admin::getdonnees();
+
+if (isset($_GET['id'])){
+    $id = $_GET['id'];
+    Admin::suppression($id); // Si un ID est présent dans l'URL, effectuer la suppression
+}
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +17,7 @@ $categories = Admin::getdonnees();
 </head>
 <body>
 
-<!-- Afficher un tableau avec toutes les Categories et sous-categories puis -->
+<!-- Afficher un tableau avec toutes les Categories et sous-categories -->
 <a href="ajoutCategorie.php">Ajouter une catégorie</a>
 <table cellpadding="30" border="1px">
     <tr>
@@ -30,7 +34,10 @@ $categories = Admin::getdonnees();
         <td><?= $categorie['nom']?></td>
         <td><?= $categorie['chemin']?></td>
         <td><?= $categorie['categorie_id'] ?></td>
-        <td><a href="modificationCategorie.php?id=<?=$categorie['id']?>">Modifier</a> / <a href="">Supprimer</a></td>
+        <td>
+            <a href="modificationCategorie.php?id=<?= $categorie['id']?>">Modifier</a> / 
+            <a href="administration.php?id=<?= $categorie['id']?>" onclick="return confirm('Voulez-vous vraiment supprimer cette catégorie ?')">Supprimer</a>
+        </td>
     </tr>
     <?php }?>
     

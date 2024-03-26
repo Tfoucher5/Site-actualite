@@ -8,10 +8,7 @@ if (isset($_POST['soumettre'])){
     $categorie_id = $_POST['categorie_id'];
 }
 
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
