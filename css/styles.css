@@ -280,3 +280,39 @@ footer iframe{
     width: 50px;
     margin: 0   auto;
 }
+
+/*ADMIN*/
+
+.admin{
+    background-color: white;
+}
+
+.tableau-admin{
+    margin-left: 30%;
+    margin-top: 50px;
+}
+
+.boutons-tableau{
+    text-decoration: none;
+    color: black;
+    border: 1px solid;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.boutons-tableau:hover{
+    box-shadow: 2px 2px;
+}
+
+.bouton-ajouter{
+    text-decoration: none;
+    color: black;
+    border: 1px solid;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.box-buttons{
+    margin-left: 44%;
+    margin-top: 25px;
+}

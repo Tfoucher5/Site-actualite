@@ -10,11 +10,8 @@ if (isset($_POST['soumettre'])) {
         'nom' => $_POST['nom'],
         'mail' => $_POST['mail'],
     );
-
-    // Create an instance of Contact and pass the values
     $contact = new Contact($values);
 
-    // Call the sendContact method
     $contact->sendContact($contact);
 }
 ?>
