@@ -16,7 +16,7 @@ $actualite = Actualite::getListe();
 </head>
 <body>
     <header>
-        <?php include 'include\header.php'; ?> <!-- Assurez-vous que le chemin vers le fichier header.php est correct -->
+        <?php include 'include\header.php'; ?>
     </header>  
     <br />
     <main>

@@ -1,5 +1,6 @@
 <?php 
 require_once 'classes/Categories.php';
+require_once 'classes/Page.php';
 
 $categories = Categories::getCategories();
 ?>
@@ -18,9 +19,9 @@ $categories = Categories::getCategories();
                 <option value=""><?= $categorie['nom'] ?></option>
                 <?php
                 $souscategories = Categories::getSousCategories($categorie['id']);
-                
-                foreach ($souscategories as $souscategorie) { ?>
-                    <option value="<?= $souscategorie['chemin'] ?>"><?= $souscategorie['nom'] ?></option>
+
+                foreach ($souscategories as $souscategorie) {?>
+                    <option value="page.php?id=<?= $ref_nom = $souscategorie['nom'] ?>"><?= $souscategorie['nom'] ?></option>
                 <?php } ?>
             </select>
         <?php } ?>

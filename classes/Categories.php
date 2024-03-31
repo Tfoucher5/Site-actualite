@@ -2,7 +2,7 @@
 
 require_once 'Connexionbdd.php';
 
-class Categories extends Connexionbdd{
+abstract class Categories extends Connexionbdd {
 
     public static function getCategories(){
             $sql = 'SELECT * FROM categories WHERE categorie_id IS NULL';

@@ -2,7 +2,7 @@
 
 require_once 'Connexionbdd.php';
 
-class Admin extends Connexionbdd{
+abstract class Admin extends Connexionbdd {
     
     public static function getDonnees(){
         $sql = 'SELECT * FROM categories';
